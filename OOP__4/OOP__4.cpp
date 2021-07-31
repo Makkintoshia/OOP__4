@@ -43,7 +43,7 @@ public:
 
 class Vector
 {
-private:
+public:
 	int* vec;
 	int size;
 public:
@@ -58,21 +58,38 @@ public:
 		for (int i = 0; i < size; i++)
 		{
 			vec[i] = 2;
-			cout << vec[i];
+			cout << vec[i]<<endl;
 
 		}
 		cout  << endl;
 	}
 	friend void result();
 };
-void result()
-{
-	
-	for (int j = 0;j < columns;j++)
-	{
 
+
+
+void result(Matrix matrix, Vector vector)
+{
+	int* res_vector;
+	res_vector = new int[vector.size];
+	for (int k = 0; k < vector.size;k++)
+	{
+		 res_vector[k]=0;
 	}
 
+	for (int i = 0;i < matrix.columns;i++)
+	{
+		for (int j = 0; j < matrix.rows; j++)
+		{
+			res_vector[i] += matrix.arr[i][j] * vector.vec[j];
+
+		}
+	}
+	cout << "Result multiply vector and matrix"<<endl;
+	for (int k = 0; k < vector.size;k++)
+	{
+		cout << res_vector[k] << endl;
+	}
 
 }
 
@@ -81,7 +98,8 @@ int main()
 	Matrix matrix(3,3);
 	
 	Vector vector(3);
-
-	cout << "1";
+	
+	result( matrix,vector);
+	
 	return 0;
 }
