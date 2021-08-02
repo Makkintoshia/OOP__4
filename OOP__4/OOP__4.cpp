@@ -6,10 +6,10 @@
 #include <conio.h>
 using namespace std;
 
-
+class Vector;
 class Matrix
 {
-public:
+private:
 	int** arr;
 	int rows;
 	int columns;
@@ -38,12 +38,12 @@ public:
 		}
 
 	}
-	friend void result();
+	friend void result(Matrix matrix, Vector vector);
 };
 
 class Vector
 {
-public:
+private:
 	int* vec;
 	int size;
 public:
@@ -63,7 +63,7 @@ public:
 		}
 		cout  << endl;
 	}
-	friend void result();
+	friend void result(Matrix matrix, Vector vector);
 };
 
 
